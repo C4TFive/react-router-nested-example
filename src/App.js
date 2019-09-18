@@ -1,26 +1,34 @@
 import React from 'react';
-import logo from './logo.svg';
+import {BrowserRouter as Router, Route, Link} from 'react-router-dom';
+import Movie from './Movie.js';
+import MovieList from './MovieList.js';
 import './App.css';
-
-function App() {
+const movies = [
+  {
+    id: 1,
+    name: 'ALIENS',
+  },
+  {
+    id: 2,
+    name: 'HARRY POTTER',
+  },
+  {
+    id: 3,
+    name: 'BATMAN',
+  },
+];
+const App = (props) => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <>
+        <Link to="/">Home</Link>
+        <Route exact path="/" 
+            render={(props)=><MovieList {...props} movies={movies}/>} />
+        <Route path="/movie/:movieId" 
+            render={(props)=><Movie {...props} movies={movies}/>} />
+      </>
+    </Router>
   );
-}
+};
 
 export default App;
