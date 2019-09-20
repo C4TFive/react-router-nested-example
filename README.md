@@ -1,6 +1,5 @@
 # React Router Nested Example
 
-![](nested.png)
 Try it out
 ```
 git clone https://github.com/C4TFive/react-router-nested-example.git
